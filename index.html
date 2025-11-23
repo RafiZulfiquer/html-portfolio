@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rafi's- Portfolio</title>
+    <title>Rafi Zulfiquer - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -13,13 +13,14 @@
 
         :root {
             --primary: #3b82f6;
-            --secondary: #06b6d4;
+            --secondary: #8b5cf6;
             --accent: #f59e0b;
             --accent-pink: #ec4899;
-            --bg-light: #f8fafc;
+            --accent-green: #10b981;
+            --bg-light: #fefefe;
             --bg-white: #ffffff;
             --text-dark: #1e293b;
-            --text-gray: #475569;
+            --text-gray: #64748b;
             --border: #e2e8f0;
         }
 
@@ -31,7 +32,6 @@
             line-height: 1.6;
         }
 
-        /* Animated Background */
         .bg-animation {
             position: fixed;
             top: 0;
@@ -47,10 +47,12 @@
             position: absolute;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
-            animation: bgFloat 20s ease-in-out infinite;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 60% 60%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
+            animation: bgFloat 15s ease-in-out infinite;
         }
 
         @keyframes bgFloat {
@@ -59,7 +61,6 @@
             66% { transform: translate(5%, 5%) rotate(240deg); }
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -111,7 +112,6 @@
             width: 100%;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -154,8 +154,18 @@
 
         .hero p {
             font-size: clamp(1.1rem, 2vw, 1.5rem);
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             color: var(--text-gray);
+        }
+
+        .hero .location {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .cta-button {
@@ -167,15 +177,15 @@
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            margin: 0.5rem;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
+            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.6);
         }
 
-        /* Section Styles */
         section {
             padding: 5rem 5%;
             max-width: 1400px;
@@ -199,7 +209,6 @@
             border-radius: 2px;
         }
 
-        /* About Section */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -224,10 +233,27 @@
             line-height: 1.8;
         }
 
+        .about-text h3 {
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text li {
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+        }
+
         .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
+            margin-top: 1rem;
         }
 
         .skill-tag {
@@ -248,22 +274,22 @@
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
         }
 
-        /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
         .project-card {
-            background: rgba(15, 23, 42, 0.6);
+            background: var(--bg-white);
             border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(99, 102, 241, 0.2);
+            border: 2px solid var(--border);
             transition: all 0.4s ease;
             opacity: 0;
             transform: translateY(30px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         .project-card.visible {
@@ -274,18 +300,23 @@
         .project-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
         }
 
         .project-image {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: white;
+            overflow: hidden;
+            background: var(--bg-light);
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .project-content {
@@ -295,12 +326,13 @@
         .project-content h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: white;
+            color: var(--text-dark);
         }
 
         .project-content p {
             margin-bottom: 1.5rem;
-            color: var(--text);
+            color: var(--text-gray);
+            line-height: 1.6;
         }
 
         .project-tags {
@@ -312,61 +344,47 @@
 
         .project-tag {
             padding: 0.3rem 0.8rem;
-            background: rgba(139, 92, 246, 0.2);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(59, 130, 246, 0.15));
             border-radius: 15px;
             font-size: 0.8rem;
             color: var(--secondary);
+            font-weight: 600;
+            border: 1px solid var(--secondary);
         }
 
         .project-link {
             display: inline-block;
             color: var(--primary);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: color 0.3s ease;
+            margin-right: 1rem;
         }
 
         .project-link:hover {
             color: var(--accent);
         }
 
-        /* Contact Section */
         .contact-content {
             max-width: 600px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 2rem;
+        .contact-info {
+            margin: 2rem 0;
+            font-size: 1.1rem;
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: 10px;
-            color: var(--text);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
+        .contact-info a:hover {
+            color: var(--secondary);
         }
 
         .social-links {
@@ -382,30 +400,49 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid var(--primary);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border: 2px solid var(--primary);
             border-radius: 50%;
             color: var(--primary);
             text-decoration: none;
             font-size: 1.5rem;
+            font-weight: bold;
             transition: all 0.3s ease;
         }
 
         .social-link:hover {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 2rem;
-            background: rgba(15, 23, 42, 0.8);
-            border-top: 1px solid rgba(99, 102, 241, 0.2);
+            background: var(--bg-white);
+            border-top: 2px solid var(--border);
+            color: var(--text-gray);
         }
 
-        /* Responsive */
+        .certifications {
+            margin-top: 2rem;
+        }
+
+        .cert-item {
+            background: var(--bg-white);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .cert-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 gap: 1.5rem;
@@ -419,6 +456,10 @@
 
             section {
                 padding: 3rem 5%;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -437,9 +478,12 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Your Name</h1>
-            <p>Creative Developer & Designer</p>
-            <a href="#projects" class="cta-button">View My Work</a>
+            <h1>Rafi Zulfiquer</h1>
+            <p>Software Engineering Student</p>
+            <p>Adelaide University, 2nd Year</p>
+            <div class="location">📍 Adelaide, South Australia</div>
+            <a href="#projects" class="cta-button">View My Projects</a>
+            <a href="#contact" class="cta-button">Get In Touch</a>
         </div>
     </section>
 
@@ -447,20 +491,48 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>Hi! I'm a passionate creative professional who loves bringing ideas to life through design and code. With expertise in modern web technologies and a keen eye for aesthetics, I create engaging digital experiences.</p>
-                <p>I specialize in building responsive, user-friendly applications that not only look great but also solve real-world problems.</p>
+                <p>I'm currently pursuing a <strong>Bachelor of Software Engineering (Honours)</strong> at the University of Adelaide, expected to graduate in November 2028. I'm passionate about building software, exploring new technologies, and solving real-world problems with code.</p>
+                
+                <p>Always eager to learn, I enjoy working on projects that challenge me and help me grow as a developer.</p>
+
+                <h3>Hobbies</h3>
+                <p>Outside of my studies, I enjoy coding fun projects, binge-watching Netflix, spending time at the beach, and I'm always happy to meet new people. I also love animals and enjoy being around them whenever I can.</p>
+
+                <h3>Top Technical Skills</h3>
                 <div class="skills">
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">UI/UX Design</span>
-                    <span class="skill-tag">HTML/CSS</span>
-                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">C++</span>
                     <span class="skill-tag">Python</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Express.js</span>
+                    <span class="skill-tag">React.js</span>
+                    <span class="skill-tag">HTML & CSS</span>
+                    <span class="skill-tag">SQL Server</span>
+                    <span class="skill-tag">AI & ML</span>
+                    <span class="skill-tag">Agile/SDLC</span>
                 </div>
             </div>
             <div class="about-text">
-                <p>When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or experimenting with emerging technologies.</p>
-                <p>I believe in continuous learning and always strive to stay updated with the latest industry developments to deliver cutting-edge solutions.</p>
+                <h3>Licenses & Certifications</h3>
+                <div class="certifications">
+                    <div class="cert-item">
+                        <h4>The Complete 2024 Web Development Bootcamp</h4>
+                        <p>JavaScript, Node.js, Express.js, React.js, HTML, CSS, Microsoft SQL Server</p>
+                    </div>
+                    <div class="cert-item">
+                        <h4>Introduction to Programming using Python</h4>
+                        <p>Python Programming fundamentals</p>
+                    </div>
+                    <div class="cert-item">
+                        <h4>Introduction to Artificial Intelligence (AI)</h4>
+                        <p>AI concepts and fundamentals</p>
+                    </div>
+                    <div class="cert-item">
+                        <h4>Machine Learning for All</h4>
+                        <p>Machine learning and SEO basics</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -469,80 +541,34 @@
         <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-image">🚀</div>
+                <div class="project-image">
+                    <img src="https://raw.githubusercontent.com/RafiZulfiquer/Matlab-Maze-Game/main/maze_preview.png" alt="MATLAB Maze Game" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;background:linear-gradient(135deg,#3b82f6,#06b6d4);color:white;font-size:3rem;\'>🎮</div>'">
+                </div>
                 <div class="project-content">
-                    <h3>Project One</h3>
+                    <h3>MATLAB Maze Game</h3>
                     <div class="project-tags">
-                        <span class="project-tag">React</span>
-                        <span class="project-tag">API</span>
+                        <span class="project-tag">MATLAB</span>
+                        <span class="project-tag">GUI</span>
+                        <span class="project-tag">Game Dev</span>
                     </div>
-                    <p>A modern web application with a sleek interface and powerful functionality. Built with the latest technologies for optimal performance.</p>
-                    <a href="#" class="project-link">View Project →</a>
+                    <p>MATLAB-based interactive maze game with GUI, progressive difficulty, obstacles, and score tracking, challenging players to reach the goal efficiently.</p>
+                    <a href="https://github.com/RafiZulfiquer/Matlab-Maze-Game" class="project-link" target="_blank">View on GitHub →</a>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-image">💎</div>
-                <div class="project-content">
-                    <h3>Project Two</h3>
-                    <div class="project-tags">
-                        <span class="project-tag">UI/UX</span>
-                        <span class="project-tag">Design</span>
-                    </div>
-                    <p>An elegant design system created to streamline the development process and ensure brand consistency across platforms.</p>
-                    <a href="#" class="project-link">View Project →</a>
+                <div class="project-image">
+                    <img src="https://raw.githubusercontent.com/RafiZulfiquer/OOP-GroupProject/main/game_preview.png" alt="Goblin Slayer" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;background:linear-gradient(135deg,#ec4899,#f59e0b);color:white;font-size:3rem;\'>⚔️</div>'">
                 </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">⚡</div>
                 <div class="project-content">
-                    <h3>Project Three</h3>
+                    <h3>Goblin Slayer</h3>
                     <div class="project-tags">
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">Animation</span>
+                        <span class="project-tag">C++</span>
+                        <span class="project-tag">SFML</span>
+                        <span class="project-tag">OOP</span>
                     </div>
-                    <p>Interactive experience with smooth animations and micro-interactions that delight users at every touchpoint.</p>
-                    <a href="#" class="project-link">View Project →</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">🎨</div>
-                <div class="project-content">
-                    <h3>Project Four</h3>
-                    <div class="project-tags">
-                        <span class="project-tag">Creative</span>
-                        <span class="project-tag">CSS</span>
-                    </div>
-                    <p>A visually stunning portfolio showcasing creative coding techniques and experimental design approaches.</p>
-                    <a href="#" class="project-link">View Project →</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">🌐</div>
-                <div class="project-content">
-                    <h3>Project Five</h3>
-                    <div class="project-tags">
-                        <span class="project-tag">Full-Stack</span>
-                        <span class="project-tag">Database</span>
-                    </div>
-                    <p>Comprehensive web platform with backend integration, user authentication, and real-time data processing.</p>
-                    <a href="#" class="project-link">View Project →</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">📱</div>
-                <div class="project-content">
-                    <h3>Project Six</h3>
-                    <div class="project-tags">
-                        <span class="project-tag">Mobile</span>
-                        <span class="project-tag">Responsive</span>
-                    </div>
-                    <p>Mobile-first application designed for seamless user experience across all devices and screen sizes.</p>
-                    <a href="#" class="project-link">View Project →</a>
+                    <p>C++ & SFML survival game with multiple classes, evolutions, waves of enemies, boss fights, leveling system, and a persistent leaderboard.</p>
+                    <a href="https://github.com/RafiZulfiquer/OOP-GroupProject" class="project-link" target="_blank">View on GitHub →</a>
                 </div>
             </div>
         </div>
@@ -551,34 +577,25 @@
     <section id="contact">
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact-content">
-            <p>Have a project in mind or just want to chat? Feel free to reach out!</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="cta-button">Send Message</button>
-            </form>
+            <p>Feel free to reach out if you'd like to collaborate, discuss projects, or just say hi!</p>
+            
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:rafizulfiquer12@gmail.com">rafizulfiquer12@gmail.com</a></p>
+            </div>
+
             <div class="social-links">
-                <a href="#" class="social-link">𝕏</a>
-                <a href="#" class="social-link">in</a>
-                <a href="#" class="social-link">{ }</a>
-                <a href="#" class="social-link">@</a>
+                <a href="https://www.linkedin.com/in/shaikh-rafi-zulfiquer/" class="social-link" target="_blank" title="LinkedIn">in</a>
+                <a href="https://github.com/RafiZulfiquer" class="social-link" target="_blank" title="GitHub">{ }</a>
+                <a href="mailto:rafizulfiquer12@gmail.com" class="social-link" title="Email">@</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
+        <p>&copy; 2025 Rafi Zulfiquer. All rights reserved.</p>
     </footer>
 
     <script>
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -589,7 +606,6 @@
             });
         });
 
-        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
@@ -599,7 +615,6 @@
             }
         });
 
-        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -613,16 +628,8 @@
             });
         }, observerOptions);
 
-        // Observe elements
         document.querySelectorAll('.about-text, .project-card').forEach(el => {
             observer.observe(el);
-        });
-
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! (This is a demo - connect your own backend)');
-            e.target.reset();
         });
     </script>
 </body>
